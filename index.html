@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <style>
+       </style>
+    <title>Chunming Assignment</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/common.css" type="text/css" />
+    <script src="js/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/json2.js"></script>
+</head>
+<script>
+    function changeScreenSize(w, h) {
+        window.resizeTo(w, h);
+
+    }
+</script>
+
+
+<body onload="changeScreenSize(640px,1136px)" ng-app="myApp">
+    <div class="screen">
+        <div class="icon"><a href="AppStore.html">
+            <img src="image/icons/AppStore.png" /></a><div style="color: white; padding-top: 5px">AppStore</div>
+        </div>
+        <div ng-controller="MyCtrl">
+            <div>
+                <!--<div ng-repeat="item in list">{{item}}</div>-->
+                <div class="icon" title="{{item}}" ng-repeat="item in list">
+                    <a ng-dblclick="myFunction(item)">
+                        <img src="image/icons/{{item}}.png" /></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+        var mylist = ["Calculator", "Safari", "Settings", "Photos", "Clock"];
+        function MyCtrl($scope) {
+            $scope.list = mylist;
+            var data = sessionStorage.getItem("test");
+            mylist.push(data);
+            $scope.add = function () {
+                mylist.push("Notes");
+                $window.location.href = '/1.html';
+            }
+            $scope.toLink = function (x) {
+                window.location.href = x + '.html';
+            }
+            $scope.myFunction = function (y) {
+                if (confirm("Do you want to delete it!") == true) {
+                    var i = mylist.indexOf(y);
+                    if (i != -1) { mylist.splice(i, 1) }
+                }
+            }
+
+        }
+    </script>
+
+</body>
+</html>

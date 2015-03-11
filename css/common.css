@@ -1,0 +1,59 @@
+html, body {
+
+    background-image: url("../image/background.jpg");
+}
+
+.screen {
+    width: 332px;
+    float: left;
+}
+
+    .screen .icon {
+        float: left;
+        width: 60px;
+        height: 60px;
+        background-repeat: no-repeat;
+        margin: 25px;
+        position: relative;
+    }
+
+        .screen .icon:after {
+            bottom: -25px;
+            color: white;
+            content: attr(title);
+            font-size: 12px;
+            height: 20px;
+            left: -20px;
+            overflow: hidden;
+            position: absolute;
+            text-align: center;
+            white-space: nowrap;
+            width: 100px;
+            text-shadow: 0 0 3px #222;
+        }
+
+
+
+.imgApp {
+    height:80px;
+    width:150px;
+    padding:20px 20px 20px 20px;
+}
+
+.txt {
+    width:200px;
+    color:white;
+
+}
+.bn {
+width:80px;
+border-radius: 10px;
+border: 1px solid transparent;
+}
+
+.line {
+    border: 2px solid #a1a1a1;
+    background: #dddddd;
+    width: 2px;
+
+}
